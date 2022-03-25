@@ -1,0 +1,303 @@
+<!-- 
+Enturf Orientierungstool, v2 (25.03.2022)
+Projekt ENG 2025 - Führen von Dritten
+
+Dr. Eugenio Serantoni
+Fachingenieur Geomatik 
+SBB AG
+Infrastruktur – Ausbau- und Erneuerungsprojekte – Engineering
+Fachbereich Geomatik
+Vulkanplatz 11, 8048 Zürich
+Mobil +41 79 150 26 19
+eugenio.serantoni@sbb.ch / www.sbb.ch
+-->
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>FvD Orientierungstool</title>
+<style>
+    .slidecontainer {
+  width: 60%; /* Width of the outside container */
+}
+
+/* The slider itself */
+.slider {
+  -webkit-appearance: none;  /* Override default CSS styles */
+  appearance: none;
+  width: 40%; /* Full-width */
+  height: 8px; /* Specified height */
+  border-radius: 5px;  
+  background: #d3d3d3; /* Grey background */
+  outline: none; /* Remove outline */
+  opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
+  -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+  transition: opacity .2s;
+}
+
+/* Mouse-over effects */
+.slider:hover {
+  opacity: 1; /* Fully shown on mouse-over */
+}
+
+/* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none; /* Override default look */
+  appearance: none;
+  width: 15px; /* Set a specific slider handle width */
+  height: 15px; /* Slider handle height */
+  border-radius: 50%; 
+  background: #eb0000; /* Green background */
+  cursor: pointer; /* Cursor on hover */
+}
+
+.slider::-moz-range-thumb {
+  width: 25px; /* Set a specific slider handle width */
+  height: 25px; /* Slider handle height */
+  background: #04AA6D; /* Green background */
+  cursor: pointer; /* Cursor on hover */
+}
+
+#wrapper {
+  display: flex;
+}
+
+#left {
+  flex: 0 0 45%;
+}
+
+#right {
+  flex: 1;
+}
+
+p{
+margin: 15px 0;
+}
+
+body
+{
+font-family: 'Helvetica', 'Arial', sans-serif;
+}
+</style>
+</head>
+
+<body>
+
+<img src="banner_fvd_2.png">
+
+<h1>FvD Orientierungstool</h1>
+
+<p> Hier kannst Du anhand der Fragen Deine Einschätzung vornehmen und die Regler entsprechend verschieben. <p>
+<p>(1: trifft überhaupt nicht zu, 2: trifft nicht zu, 3: trifft nicht zu, 4: trifft zu, 5: trifft voll und ganz zu)<p>
+
+<div id="wrapper">
+
+<div id="left">
+<p><b> Externe Partner kennen ihre Anforderungen zu wenig</b></p>
+<div class="slidecontainer">
+  <input type="range" min="1" max="5" value="3" class="slider" id="myRange0">
+  <span> <b> <span id="out0"></span>/5 </b></span>
+</div>
+
+<p><b> Über Vertragsstrukturen würde ich gerne mehr wissen</b></p>
+<div class="slidecontainer">
+  <input type="range" min="1" max="5" value="3" class="slider" id="myRange1">
+  <span> <b> <span id="out1"></span>/5</b></span>
+</div>
+
+<p><b> Ich kämpfe im Projekt oft mit vielen Nachträgen</b></p>
+<div class="slidecontainer">
+  <input type="range" min="1" max="5" value="3" class="slider" id="myRange2">
+   <span> <b> <span id="out2"></span>/5</b></span>
+</div>
+
+<p><b> Es ist mir wichtig mein Gegenüber besser zu verstehen</b></p>
+<div class="slidecontainer">
+  <input type="range" min="1" max="5" value="3" class="slider" id="myRange3">
+   <span> <b> <span id="out3"></span>/5</b></span>
+</div>
+
+<p><b> In meinem Projekt wird zu wenig kommuniziert</b></p>
+<div class="slidecontainer">
+  <input type="range" min="1" max="5" value="3" class="slider" id="myRange4">
+   <span> <b> <span id="out4"></span>/5</b></span>
+</div>
+
+<p><b> Ich kann meinen externen Partner zu wenig unterstützen</b></p>
+<div class="slidecontainer">
+  <input type="range" min="1" max="5" value="3" class="slider" id="myRange5">
+   <span> <b> <span id="out5"></span>/5</b></span>
+</div>
+
+<p><b> Die Nachhaltigkeit spielt in meinem Projekt eine wichtige Rolle</b></p>
+<div class="slidecontainer">
+  <input type="range" min="1" max="5" value="3" class="slider" id="myRange6">
+   <span> <b> <span id="out6"></span>/5</b></span>
+</div>
+
+<p><b> Ich weiss nicht, wie ich den externen Partner zu mehr Qualität führe</b></p>
+<div class="slidecontainer">
+  <input type="range" min="1" max="5" value="3" class="slider" id="myRange7">
+   <span> <b> <span id="out7"></span>/5</b></span>
+</div>
+
+<p><b> Die Bedürfnisse meiner Projektpartner sind mir nicht ganz klar</b></p>
+<div class="slidecontainer">
+  <input type="range" min="1" max="5" value="3" class="slider" id="myRange8">
+   <span> <b> <span id="out8"></span>/5</b></span>
+</div>
+
+</div>
+
+<div id="right"> 
+<div id="piechart"></div>
+</div>
+
+</div>
+
+<p>Zurück zum SBB Sharepoint <a href="https://sbb.sharepoint.com/sites/fuehren-von-dritten/SitePages/SchulungsangebotDE.aspx">Führen von Dritten</a> und entdeckt deine passende Schulungsangebot<p>
+<script>
+
+var slider0 = document.getElementById("myRange0");
+//var output0 = document.getElementById("demo0");
+document.getElementById('out0').innerHTML = slider0.value;
+slider0.oninput = function() {
+  document.getElementById('out0').innerHTML  = this.value;
+  calculationANDchart();
+}
+
+var slider1 = document.getElementById("myRange1");
+//var output1 = document.getElementById("demo1");
+document.getElementById('out1').innerHTML = slider1.value;
+slider1.oninput = function() {
+  document.getElementById('out1').innerHTML = this.value;
+  calculationANDchart();
+}
+
+var slider2 = document.getElementById("myRange2");
+//var output2 = document.getElementById("demo2");
+document.getElementById('out2').innerHTML = slider2.value;
+slider2.oninput = function() {
+  document.getElementById('out2').innerHTML = this.value;
+  calculationANDchart();
+}
+
+var slider3 = document.getElementById("myRange3");
+//var output3 = document.getElementById("demo3");
+document.getElementById('out3').innerHTML = slider3.value;
+slider3.oninput = function() {
+  document.getElementById('out3').innerHTML = this.value;
+  calculationANDchart();
+}
+
+var slider4 = document.getElementById("myRange4");
+//var output4 = document.getElementById("demo4");
+document.getElementById('out4').innerHTML = slider4.value;
+slider4.oninput = function() {
+  document.getElementById('out4').innerHTML = this.value;
+  calculationANDchart();
+}
+
+var slider5 = document.getElementById("myRange5");
+//var output5 = document.getElementById("demo5");
+document.getElementById('out5').innerHTML = slider5.value;
+slider5.oninput = function() {
+  document.getElementById('out5').innerHTML = this.value;
+  calculationANDchart();
+}
+
+var slider6 = document.getElementById("myRange6");
+//var output6 = document.getElementById("demo6");
+document.getElementById('out6').innerHTML = slider6.value;
+slider6.oninput = function() {
+  document.getElementById('out6').innerHTML = this.value;
+  calculationANDchart();
+}
+
+var slider7 = document.getElementById("myRange7");
+//var output7 = document.getElementById("demo7");
+document.getElementById('out7').innerHTML = slider7.value;
+slider7.oninput = function() {
+  document.getElementById('out7').innerHTML = this.value;
+  calculationANDchart();
+}
+
+var slider8 = document.getElementById("myRange8");
+//var output8 = document.getElementById("demo8");
+document.getElementById('out8').innerHTML = slider8.value;
+slider8.oninput = function() {
+  document.getElementById('out8').innerHTML = this.value;
+  calculationANDchart();
+}
+
+
+var gewichte = [
+  [1, 0, 0],
+  [1, 0, 0],
+  [1, 0, 0],
+  [0, 1, 0],
+  [0, 1, 0],
+  [0, 1, 0],
+  [0, 0, 1],
+  [0, 0, 1],
+  [0, 0, 1]
+];
+
+function calculationANDchart(){
+var wert0 = parseInt(out0.innerHTML,10);
+var wert1 = parseInt(out1.innerHTML,10);
+var wert2 = parseInt(out2.innerHTML,10);
+var wert3 = parseInt(out3.innerHTML,10);
+var wert4 = parseInt(out4.innerHTML,10);
+var wert5 = parseInt(out5.innerHTML,10);
+var wert6 = parseInt(out6.innerHTML,10);
+var wert7 = parseInt(out7.innerHTML,10);
+var wert8 = parseInt(out8.innerHTML,10);
+
+var row0 = gewichte[0].map(function(x) { return x * (wert0-1); });
+var row1 = gewichte[1].map(function(x) { return x * (wert1-1); });
+var row2 = gewichte[2].map(function(x) { return x * (wert2-1); });
+var row3 = gewichte[3].map(function(x) { return x * (wert3-1); });
+var row4 = gewichte[4].map(function(x) { return x * (wert4-1); });
+var row5 = gewichte[5].map(function(x) { return x * (wert5-1); });
+var row6 = gewichte[6].map(function(x) { return x * (wert6-1); });
+var row7 = gewichte[7].map(function(x) { return x * (wert7-1); });
+var row8 = gewichte[8].map(function(x) { return x * (wert8-1); });
+
+var fullMat= [row0,row1,row2,row3,row4,row5,row6,row7,row8];
+
+var sum = (r, a) => r.map((b, i) => a[i] + b);
+var shownvalues=fullMat.reduce(sum);
+console.log(shownvalues);
+
+ var data = google.visualization.arrayToDataTable([
+  ['Aspect', 'Score'],
+  ['Wertschöpfung', shownvalues[0]],
+  ['Bindungen', shownvalues[1]],
+  ['Beziehungen', shownvalues[2]],
+]);
+
+ // Optional; add a title and set the width and height of the chart
+  var options = {/*'title':'Resultate',*/ 'width':550, 'height':400, pieSliceText: 'label', legend: 'none',};
+
+  // Display the chart inside the <div> element with id="piechart"
+  var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+  chart.draw(data, options);
+}
+
+</script>
+
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+<script type="text/javascript">
+// Load google charts
+google.charts.load('current', {'packages':['corechart']});
+google.charts.setOnLoadCallback(calculationANDchart);
+</script>
+
+</body>
+</html>
+
+
