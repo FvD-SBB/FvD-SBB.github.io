@@ -1,5 +1,5 @@
 <!-- 
-Enturf Orientierungstool, v2 (16.02.2002)
+Enturf Orientierungstool, v4 (25.03.2022)
 Projekt ENG 2025 - Führen von Dritten
 
 Dr. Eugenio Serantoni
@@ -27,7 +27,7 @@ eugenio.serantoni@sbb.ch / www.sbb.ch
 .slider {
   -webkit-appearance: none;  /* Override default CSS styles */
   appearance: none;
-  width: 20%; /* Full-width */
+  width: 40%; /* Full-width */
   height: 8px; /* Specified height */
   border-radius: 5px;  
   background: #d3d3d3; /* Grey background */
@@ -85,60 +85,65 @@ font-family: 'Helvetica', 'Arial', sans-serif;
 
 <body>
 
-<h1>Orientierungstool</h1>
+<img src="banner_fvd_2.png">
+
+<h1>FvD Orientierungstool</h1>
+
+<p> Hier kannst Du anhand der Fragen Deine Einschätzung vornehmen und die Regler entsprechend verschieben. <p>
+<p>(1: trifft überhaupt nicht zu, 2: trifft nicht zu, 3: trifft nicht zu, 4: trifft zu, 5: trifft voll und ganz zu)<p>
 
 <div id="wrapper">
 
 <div id="left">
-<p>Frage 1: <b> Externe Partner kennen ihre Anforderungen zu wenig</b></p>
+<p><b> Externe Partner kennen ihre Anforderungen zu wenig</b></p>
 <div class="slidecontainer">
   <input type="range" min="1" max="5" value="3" class="slider" id="myRange0">
   <span> <b> <span id="out0"></span>/5 </b></span>
 </div>
 
-<p>Frage 2: <b> Über Vertragsstrukturen würde ich gerne mehr wissen</b></p>
+<p><b> Über Vertragsstrukturen würde ich gerne mehr wissen</b></p>
 <div class="slidecontainer">
   <input type="range" min="1" max="5" value="3" class="slider" id="myRange1">
   <span> <b> <span id="out1"></span>/5</b></span>
 </div>
 
-<p>Frage 3: <b> Ich kämpfe im Projekt oft mit vielen Nachträgen</b></p>
+<p><b> Ich kämpfe im Projekt oft mit vielen Nachträgen</b></p>
 <div class="slidecontainer">
   <input type="range" min="1" max="5" value="3" class="slider" id="myRange2">
    <span> <b> <span id="out2"></span>/5</b></span>
 </div>
 
-<p>Frage 4: <b> Es ist mir wichtig mein Gegenüber besser zu verstehen</b></p>
+<p><b> Es ist mir wichtig mein Gegenüber besser zu verstehen</b></p>
 <div class="slidecontainer">
   <input type="range" min="1" max="5" value="3" class="slider" id="myRange3">
    <span> <b> <span id="out3"></span>/5</b></span>
 </div>
 
-<p>Frage 5: <b> In meinem Projekt wird zu wenig kommuniziert</b></p>
+<p><b> In meinem Projekt wird zu wenig kommuniziert</b></p>
 <div class="slidecontainer">
   <input type="range" min="1" max="5" value="3" class="slider" id="myRange4">
    <span> <b> <span id="out4"></span>/5</b></span>
 </div>
 
-<p>Frage 6: <b> Ich kann meinen externen Partner zu wenig unterstützen</b></p>
+<p><b> Ich kann meinen externen Partner zu wenig unterstützen</b></p>
 <div class="slidecontainer">
   <input type="range" min="1" max="5" value="3" class="slider" id="myRange5">
    <span> <b> <span id="out5"></span>/5</b></span>
 </div>
 
-<p>Frage 7: <b> Die Nachhaltigkeit spielt in meinem Projekt eine wichtige Rolle</b></p>
+<p><b> Die Nachhaltigkeit spielt in meinem Projekt eine wichtige Rolle</b></p>
 <div class="slidecontainer">
   <input type="range" min="1" max="5" value="3" class="slider" id="myRange6">
    <span> <b> <span id="out6"></span>/5</b></span>
 </div>
 
-<p>Frage 8: <b> Ich weiss nicht, wie ich den externen Partner zu mehr Qualität führe</b></p>
+<p><b> Ich weiss nicht, wie ich den externen Partner zu mehr Qualität führe</b></p>
 <div class="slidecontainer">
   <input type="range" min="1" max="5" value="3" class="slider" id="myRange7">
    <span> <b> <span id="out7"></span>/5</b></span>
 </div>
 
-<p>Frage 9: <b> Die Bedürfnisse meiner Projektpartner sind mir nicht ganz klar</b></p>
+<p><b> Die Bedürfnisse meiner Projektpartner sind mir nicht ganz klar</b></p>
 <div class="slidecontainer">
   <input type="range" min="1" max="5" value="3" class="slider" id="myRange8">
    <span> <b> <span id="out8"></span>/5</b></span>
@@ -148,11 +153,11 @@ font-family: 'Helvetica', 'Arial', sans-serif;
 
 <div id="right"> 
 <div id="piechart"></div>
-
 </div>
 
 </div>
- 
+
+<p>Zurück zum SBB Sharepoint <a href="https://sbb.sharepoint.com/sites/fuehren-von-dritten/SitePages/StartDE.aspx">Führen von Dritten</a> <p>
 <script>
 
 var slider0 = document.getElementById("myRange0");
